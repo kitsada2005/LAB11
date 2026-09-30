@@ -53,7 +53,7 @@ body {
 
 .item {
   overflow: hidden;
-  max-height: 120px;
+  max-height: 200px;
   transition: opacity 0.25s, transform 0.25s, max-height 0.3s 0.05s, margin 0.3s 0.05s, padding 0.3s 0.05s;
   animation: in 0.25s ease;
 }
@@ -69,3 +69,14 @@ body {
 .ib { padding: 8px; border-radius: 10px; color: var(--muted); transition: 0.15s; }
 .ib:hover { background: rgba(127, 127, 127, 0.15); }
 .ib.del:hover { color: #dc2626; }
+
+.inp { color-scheme: light dark; }
+.d-over { color: #dc2626; background: rgba(220, 38, 38, 0.13); }
+.d-today { color: #a16207; background: rgba(234, 179, 8, 0.22); }
+:root[data-theme="dark"] .d-today, :root:not([data-theme="light"]) .d-today { color: #eab308; }
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .d-today { color: #a16207; } }
+.d-normal { color: var(--muted); background: rgba(127, 127, 127, 0.13); }
+.c-work { color: #2563eb; background: rgba(37, 99, 235, 0.12); }
+.c-personal { color: #9333ea; background: rgba(147, 51, 234, 0.12); }
+.c-shopping { color: #db2777; background: rgba(219, 39, 119, 0.12); }
+.c-health { color: #0d9488; background: rgba(13, 148, 136, 0.13); }
