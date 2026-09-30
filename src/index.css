@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f3f4f6;
+  --card: #fff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --accent: #4f46e5;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 14px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --line: #334155;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --line: #334155;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.card { background: var(--card); box-shadow: var(--shadow); border-radius: 16px; }
+.inp { background: transparent; border: 1px solid var(--line); color: var(--text); border-radius: 12px; outline: none; }
+.inp:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.18); }
+.muted { color: var(--muted); }
+
+.p-low { color: #16a34a; background: rgba(22, 163, 74, 0.13); }
+.p-medium { color: #d97706; background: rgba(217, 119, 6, 0.14); }
+.p-high { color: #dc2626; background: rgba(220, 38, 38, 0.13); }
+
+.item {
+  overflow: hidden;
+  max-height: 120px;
+  transition: opacity 0.25s, transform 0.25s, max-height 0.3s 0.05s, margin 0.3s 0.05s, padding 0.3s 0.05s;
+  animation: in 0.25s ease;
+}
+.item.leaving { opacity: 0; transform: translateX(24px); max-height: 0; margin-top: 0; padding-top: 0; padding-bottom: 0; }
+@keyframes in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+.chk {
+  width: 22px; height: 22px; border-radius: 7px; border: 2px solid var(--line);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  transition: 0.15s; cursor: pointer; color: #fff;
+}
+.chk.on { background: var(--accent); border-color: var(--accent); }
+.ib { padding: 8px; border-radius: 10px; color: var(--muted); transition: 0.15s; }
+.ib:hover { background: rgba(127, 127, 127, 0.15); }
+.ib.del:hover { color: #dc2626; }
